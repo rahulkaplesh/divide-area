@@ -1,0 +1,17 @@
+<mat-card id="polygon-area-card">
+  <mat-card-title> AREA DIVISON DEMO </mat-card-title>
+  <mat-card-content>
+    <button id="add-area" mat-button (click)="addAnArea()"> ADD AREA </button>
+    <div id="area-content">
+      <mat-expansion-panel *ngFor="let area of areaListView" hideToggle (opened)="onSelected(area)" [expanded]="area.selected" (closed)="unSelected(area)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{area.name}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>I am open because i am selected!</p>
+      </mat-expansion-panel>
+    </div>
+    <button id="divide" mat-button > DIVIDE AREA </button>
+  </mat-card-content>
+</mat-card>

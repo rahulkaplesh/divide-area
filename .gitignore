@@ -1,0 +1,50 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+simulatorfrontend/dist
+simulatorfrontend/tmp
+simulatorfrontend/out-tsc
+# Only exists if Bazel was run
+simulatorfrontend/bazel-out
+
+# dependencies
+simulatorfrontend/node_modules
+
+# profiling files
+simulatorfrontend/chrome-profiler-events*.json
+simulatorfrontend/speed-measure-plugin*.json
+
+# IDEs and editors
+simulatorfrontend/.idea
+simulatorfrontend/.project
+simulatorfrontend/.classpath
+simulatorfrontend/.c9/
+simulatorfrontend/*.launch
+simulatorfrontend/.settings/
+simulatorfrontend/*.sublime-workspace
+
+# IDE - VSCode
+simulatorfrontend/.vscode/*
+simulatorfrontend/!.vscode/settings.json
+simulatorfrontend/!.vscode/tasks.json
+simulatorfrontend/!.vscode/launch.json
+simulatorfrontend/!.vscode/extensions.json
+simulatorfrontend/.history/*
+
+# misc
+simulatorfrontend/.sass-cache
+simulatorfrontend/connect.lock
+simulatorfrontend/coverage
+simulatorfrontend/libpeerconnection.log
+simulatorfrontend/npm-debug.log
+simulatorfrontend/yarn-error.log
+simulatorfrontend/testem.log
+simulatorfrontend/typings
+
+# System Files
+simulatorfrontend/.DS_Store
+simulatorfrontend/Thumbs.db
+
+divide-area-module/build
+divide-area-module/package-lock.json
+divide-area-module/node_modules

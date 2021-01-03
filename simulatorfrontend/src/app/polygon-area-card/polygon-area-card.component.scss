@@ -1,0 +1,62 @@
+#polygon-area-card {
+  margin: 10px;
+  padding: 0px;
+  width: 500px;
+  border-radius: 0px;
+  background-color: #1F1B24;
+  color: white;
+}
+
+#polygon-area-card .mat-card-title {
+  background-color: #232F34;
+  padding: 15px;
+  padding-left: 30px;
+  margin: 0px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+#polygon-area-card #add-area {
+  margin: 15px;
+  margin-left: 30px;
+  margin: 5px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+#polygon-area-card #divide {
+  margin: 15px;
+  margin-left: 30px;
+  margin: 5px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+#polygon-area-card .mat-accordion {
+  background-color: #232F34;
+  color: white;
+  overflow-y: auto;
+}
+
+#polygon-area-card .mat-expansion-panel {
+  background-color: #232F34;
+  color: white;
+  margin: 10px;
+  margin-top: 0px;
+}
+
+#polygon-area-card .mat-expansion-panel-header-title {
+  color: white;
+  letter-spacing: 1.5px;
+}
+
+#polygon-area-card #area-content {
+  overflow-y: scroll;
+}
+
+#polygon-area-card .mat-card-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 25vh;
+  max-height: 45vh;
+}
