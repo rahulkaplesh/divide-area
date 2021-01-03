@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10.0)
 
 # Name of the project (will be the name of the plugin)
-project (addon)
+project (DividePolygon)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(${CMAKE_JS_INC})
 
 # Declare the location of the source files
-file(GLOB SOURCE_FILES "*.cpp" "cppsrc/*.cpp" "cppsrc/*.h")
+file(GLOB SOURCE_FILES "*.cpp" "polygon_divide/*.cpp" "polygon_divide/*.h")
 
 # This line will tell CMake that we're building a shared library
 # from the above source files
@@ -37,4 +37,7 @@ string(REPLACE "\"" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${NODE_ADDON_API_DIR})
 
 find_package(CGAL)
-target_link_libraries(addon CGAL::CGAL)
+target_link_libraries(DividePolygon CGAL::CGAL)
+include( ${CGAL_USE_FILE} )
+
+include_directories (${CGAL_INCLUDE_DIRS})

@@ -1,5 +1,9 @@
-const testAddon = require('./build/Debug/addon.node');
+const testAddon = require('./build/Debug/DividePolygon.node');
 
-console.log(testAddon.hello());
+var obj = testAddon.Polygon();
+
+obj.addPoint(10.5323543, 20.1233434);
+
+console.log(testAddon.Polygon());
 
 module.exports = testAddon;
