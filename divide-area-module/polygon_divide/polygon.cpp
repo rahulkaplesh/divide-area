@@ -20,10 +20,11 @@ napi_value Polygon::Init(napi_env aEnv, napi_value aExports)
    napi_status status;
    napi_property_descriptor properties[] = {
       DECLARE_NAPI_METHOD("addPoint", AddPoint),
+      DECLARE_NAPI_METHOD("checkSimple", CheckSimple),
    };
    napi_value cons;
    status = napi_define_class(
-      aEnv, "Polygon", NAPI_AUTO_LENGTH, New, nullptr, 1, properties, &cons);
+      aEnv, "Polygon", NAPI_AUTO_LENGTH, New, nullptr, 2, properties, &cons);
    assert(status == napi_ok);
    napi_ref* constructor = new napi_ref;
    status = napi_create_reference(aEnv, cons, 1, constructor);
@@ -124,11 +125,33 @@ napi_value Polygon::AddPoint(napi_env env, napi_callback_info info) {
    status = napi_unwrap(env, jsthis, reinterpret_cast<void**>(&obj));
    assert(status == napi_ok);
 
-   double _value1;
-   status = napi_get_value_double(env, value[0], &_value1);
-   double _value2;
-   status = napi_get_value_double(env, value[1], &_value2);
+   double latitude;
+   status = napi_get_value_double(env, value[0], &latitude);
+   double longitude;
+   status = napi_get_value_double(env, value[1], &longitude);
    assert(status == napi_ok);
 
+   obj->mPoly.push_back(Point_2(latitude, longitude));
+
    return nullptr;
+}
+
+napi_value Polygon::CheckSimple(napi_env env, napi_callback_info info) {
+   napi_status status;
+
+   napi_value jsthis;
+   status = napi_get_cb_info(env, info, 0, nullptr, &jsthis, nullptr);
+   assert(status == napi_ok);
+
+   Polygon* obj;
+   status = napi_unwrap(env, jsthis, reinterpret_cast<void**>(&obj));
+   assert(status == napi_ok);
+
+   bool ok = obj->mPoly.is_simple();
+
+   napi_value valueToBeReturned;
+   status = napi_get_boolean(env, ok, &valueToBeReturned);
+   assert(status == napi_ok);
+
+   return valueToBeReturned;
 }

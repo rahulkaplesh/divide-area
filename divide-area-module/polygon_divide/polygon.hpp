@@ -14,6 +14,7 @@ class Polygon {
       static napi_value New(napi_env env, napi_callback_info info);
       static napi_value AddPoint(napi_env env, napi_callback_info info);
       static inline napi_value Constructor(napi_env env);
+      static napi_value CheckSimple(napi_env env, napi_callback_info info);
 
       Polygon_2                   mPoly;
       napi_env                    mEnv{nullptr};
