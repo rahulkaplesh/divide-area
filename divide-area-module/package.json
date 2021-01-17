@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node ."
+    "install": "cmake-js compile",
+    "test": "node index.js"
   },
   "dependencies": {
     "bindings": "^1.5.0",

@@ -48,3 +48,4 @@ simulatorfrontend/Thumbs.db
 divide-area-module/build
 divide-area-module/package-lock.json
 divide-area-module/node_modules
+simulatorfrontend/custom-webpack.config.js
