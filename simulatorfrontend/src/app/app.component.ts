@@ -25,6 +25,11 @@ export class AppComponent {
       scene3DOnly: true,
       navigationHelpButton: false,
       navigationInstructionsInitiallyVisible: false,
+      imageryProvider: new Cesium.BingMapsImageryProvider({
+        url : 'https://dev.virtualearth.net',
+        key: 'AmL2tQokxYaKGlIn_y1FF7eR3NsGmreYY8BiLYsCBGVYVPTksjK5j3dQg5NfGUwJ',
+        mapStyle: Cesium.BingMapsStyle.AERIAL_WITH_LABELS  
+    }),
     };
   }
 }

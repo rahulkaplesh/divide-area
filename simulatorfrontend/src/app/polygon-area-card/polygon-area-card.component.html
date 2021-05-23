@@ -8,8 +8,25 @@
           <mat-panel-title>
             {{area.name}}
           </mat-panel-title>
+          <div class="space-between"></div>
+          <p class="centered"><fa-icon class="delete-icon" [icon]="['fas', 'trash-alt']"></fa-icon></p>
         </mat-expansion-panel-header>
-        <p>I am open because i am selected!</p>
+        <div class="containerX">
+          <div class="container" *ngFor="let point of area.points; let i = index">
+            <p class="centered" fxFlex="10">
+              {{i+1}}
+            </p>
+            <mat-form-field fxFlex="40" appearance="fill">
+              <mat-label>X</mat-label>
+              <input matInput value="{{point.x.toFixed(5)}}">
+            </mat-form-field>
+            <mat-form-field  fxFlex="40" appearance="fill">
+              <mat-label>Y</mat-label>
+              <input matInput value="{{point.y.toFixed(5)}}">
+            </mat-form-field>
+            <p class="centered-icon" fxFlex="10"><fa-icon class="delete-icon" [icon]="['fas', 'trash-alt']"></fa-icon></p>
+          </div>
+        </div>
       </mat-expansion-panel>
     </div>
     <button id="divide" mat-button > DIVIDE AREA </button>

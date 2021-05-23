@@ -48,6 +48,11 @@
 #polygon-area-card .mat-expansion-panel-header-title {
   color: white;
   letter-spacing: 1.5px;
+  display: flex;
+}
+
+#polygon-area-card .space-between {
+  flex-grow: 1;
 }
 
 #polygon-area-card #area-content {
@@ -59,4 +64,27 @@
   flex-direction: column;
   min-height: 25vh;
   max-height: 45vh;
+}
+
+#polygon-area-card .mat-form-field {
+  padding: 2px;
+}
+
+#polygon-area-card .centered {
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+#polygon-area-card .centered-icon {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+
+#polygon-area-card .delete-icon {
+  color: red;
 }

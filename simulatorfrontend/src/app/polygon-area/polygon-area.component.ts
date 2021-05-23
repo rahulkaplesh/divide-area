@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { PolygonCreationService } from '../polygon-creation.service';
 
-import { Cartesian3, PolygonEditorObservable, PolygonEditUpdate, PolygonsEditorService } from 'angular-cesium';
+import { Cartesian3, CesiumEvent, MapEventsManagerService, PolygonEditorObservable, PolygonEditUpdate, PolygonsEditorService } from 'angular-cesium';
 import { Subscription } from 'rxjs';
 import { Area, Point } from '../typings';
 
@@ -23,8 +23,15 @@ export class PolygonAreaComponent implements OnInit, OnDestroy {
   areaSelectionChangeSub: Subscription = new Subscription();
   pointsChangedSub: Subscription = new Subscription();
 
-  constructor(private polygonEditor: PolygonsEditorService, private polygonCreationService: PolygonCreationService) {
+  constructor(private polygonEditor: PolygonsEditorService, private polygonCreationService: PolygonCreationService, private mapEventManagerService: MapEventsManagerService) {
     this.currentAreaBeingEdited = {name: '', points: [], selected: false};
+    this.mapEventManagerService.register({ event: CesiumEvent.RIGHT_CLICK }).subscribe((result) => {
+      if(this.polyEdit) {
+        this.polyEdit.dispose();
+        this.polyEdit = undefined as any as PolygonEditorObservable;
+        this.startExistingEdit();
+      }
+    })
   }
 
   ngOnInit(): void {
